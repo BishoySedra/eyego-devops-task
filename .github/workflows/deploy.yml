@@ -44,7 +44,7 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          kubectl create namespace eyego
+          kubectl create namespace eyego || true
           
           kubectl apply -f k8s/ -n eyego
           
