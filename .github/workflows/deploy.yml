@@ -52,9 +52,9 @@ jobs:
         run: |
           kubectl rollout restart deployment eyego-app -n eyego
 
-      # - name: Wait for Deployment to be ready
-      #   run: |
-      #     kubectl wait --for=condition=Ready --timeout=600s deployment/eyego-app -n eyego
+      - name: Wait for Deployment to be ready
+        run: |
+          kubectl wait --for=condition=Ready --timeout=600s deployment/eyego-app -n eyego
           
       - name: Verify the Deployment
         run: |
