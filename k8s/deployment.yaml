@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eyego-app
+  namespace: eyego
+  labels:
+    app: eyego-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eyego-app
+  template:
+    metadata:
+      labels:
+        app: eyego-app
+    spec:
+      containers:
+      - name: eyego-app
+        image: bishoysedra/eyego-devops-task:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"

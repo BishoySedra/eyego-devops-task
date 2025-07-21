@@ -1,0 +1,24 @@
+{
+  "name": "eyego-devops-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BishoySedra/eyego-devops-task.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/BishoySedra/eyego-devops-task/issues"
+  },
+  "homepage": "https://github.com/BishoySedra/eyego-devops-task#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
