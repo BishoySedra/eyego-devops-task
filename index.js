@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
     res.send('Hello Eyego');
 });
 
+app.get('/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 try {
     app.listen(3000, () => {
         console.log('Server is running on http://localhost:3000');
