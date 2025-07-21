@@ -47,8 +47,8 @@ jobs:
       - name: Push Docker Image to ECR
         run: |
           IMAGE_URI=880958246029.dkr.ecr.eu-north-1.amazonaws.com/eyego-devops-task:latest
-          docker tag $ECR_REPOSITORY:latest $IMAGE_URI:latest
-          docker push $IMAGE_URI:latest
+          docker tag $ECR_REPOSITORY:latest $IMAGE_URI
+          docker push $IMAGE_URI
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
