@@ -46,7 +46,7 @@ jobs:
       # Tag and push the Docker image to ECR
       - name: Push Docker Image to ECR
         run: |
-          IMAGE_URI=$(aws ecr describe-repositories --repository-names $ECR_REPOSITORY --region $AWS_REGION --query "repositories[0].repositoryUri" --output text)
+          IMAGE_URI=880958246029.dkr.ecr.eu-north-1.amazonaws.com/eyego-devops-task:latest
           docker tag $ECR_REPOSITORY:latest $IMAGE_URI:latest
           docker push $IMAGE_URI:latest
         env:
