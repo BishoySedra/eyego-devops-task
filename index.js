@@ -10,6 +10,10 @@ app.get('/health', (req, res) => {
     res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+app.get('/error', (req, res) => {
+    throw new Error('This is a test error');
+});
+
 try {
     app.listen(3000, () => {
         console.log('Server is running on http://localhost:3000');
