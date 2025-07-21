@@ -27,10 +27,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Log the cluster list
-        run: |
-          aws eks list-clusters --region ${{ secrets.AWS_REGION }}
-
       - name: Push Docker Image to Amazon ECR
         run: |
           aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
@@ -45,3 +41,17 @@ jobs:
 
       - name: console success message
         run: echo "Docker image pushed to ECR successfully."
+
+      - name: Deploy to EKS
+        run: |
+          kubectl create namespace eyego
+          
+          kubectl apply -f k8s/ -n eyego
+          
+      - name: Verify the Deployment
+        run: |
+          
+          kubectl get pods -n eyego
+
+          kubectl get svc -n eyego
+          
