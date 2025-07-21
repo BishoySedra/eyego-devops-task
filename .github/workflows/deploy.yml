@@ -42,31 +42,3 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-
-      # Tag and push the Docker image to ECR
-      - name: Push Docker Image to ECR
-        run: |
-          IMAGE_URI=880958246029.dkr.ecr.eu-north-1.amazonaws.com/eyego-devops-task:latest
-          docker tag $ECR_REPOSITORY:latest $IMAGE_URI
-          docker push $IMAGE_URI
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      # Configure kubectl
-      - name: Configure kubectl
-        run: |
-          aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-      # Deploy to Kubernetes
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl set image deployment/eyego-app eyego-app=$IMAGE_URI:latest -n $K8S_NAMESPACE
-          kubectl rollout status deployment/eyego-app -n $K8S_NAMESPACE
-        env:
-          IMAGE_URI: ${{ steps.login-ecr.outputs.image }}
