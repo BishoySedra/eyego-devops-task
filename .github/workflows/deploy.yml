@@ -39,9 +39,6 @@ jobs:
         run: |
           aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-      - name: console success message
-        run: echo "Docker image pushed to ECR successfully."
-
       - name: Deploy to EKS
         run: |
           kubectl create namespace eyego || true
@@ -51,10 +48,6 @@ jobs:
       - name: Force rollout of the Deployment
         run: |
           kubectl rollout restart deployment eyego-app -n eyego
-
-      - name: Wait for Deployment to be ready
-        run: |
-          kubectl wait --for=condition=available --timeout=600s deployment/eyego-app -n eyego
           
       - name: Verify the Deployment
         run: |
