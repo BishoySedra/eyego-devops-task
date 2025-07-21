@@ -1,6 +1,23 @@
 # Eyego DevOps Task
 
-This project is a simple Node.js application built using Express.js. It is designed to demonstrate the deployment of a containerized application using Docker and Kubernetes. The application serves a basic "Hello Eyego" message on the root endpoint.
+## Agenda
+
+1. [Introduction](#eyego-devops-task)
+2. [Features](#features)
+3. [Prerequisites](#prerequisites)
+4. [Implementation Details](#implementation-details)
+   - [Application](#application)
+   - [Docker](#docker)
+   - [Kubernetes](#kubernetes)
+5. [Installation and Usage](#installation-and-usage)
+   - [Local Development](#local-development)
+   - [Docker Usage](#docker-usage)
+   - [Kubernetes Deployment](#kubernetes-deployment)
+   - [Deploying to AWS EKS](#deploying-to-aws-eks)
+   - [Migrating to GCB EKS or Alibaba Cloud](#migrating-to-gcb-eks-or-alibaba-cloud)
+6. [Project Structure](#project-structure)
+7. [Deploy URL](#deploy-url)
+8. [GitHub Actions Secrets Required](#github-actions-secrets-required)
 
 ## Features
 
