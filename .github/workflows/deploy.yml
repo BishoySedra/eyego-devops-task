@@ -10,30 +10,14 @@ jobs:
     name: Build, Push, and Deploy to AWS
     runs-on: ubuntu-latest
 
-    env:
-      AWS_REGION: eu-north-1
-      ECR_REPOSITORY: eyego-devops-task
-      CLUSTER_NAME: eyego-eks-cluster
-      K8S_NAMESPACE: eyego
-
     steps:
       # Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # Install dependencies
-      - name: Install Dependencies
-        run: npm install
-
       # Build the Docker image
       - name: Build Docker Image
-        run: docker build -t $ECR_REPOSITORY:latest .
+        run: docker build -t eyego-devops-task:latest .
 
       # Configure AWS credentials
       - name: Configure AWS Credentials
@@ -42,3 +26,11 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Log the cluster list
+        run: |
+          aws ecs list-clusters
+
+      # - name: Push Docker Image to Amazon ECR
+      #     run: |
+
