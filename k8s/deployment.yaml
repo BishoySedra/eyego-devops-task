@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: eyego-app
-        image: bishoysedra/eyego-devops-task:latest
+        image: 880958246029.dkr.ecr.eu-north-1.amazonaws.com/eyego-devops-task:latest
         ports:
         - containerPort: 3000
         env:
