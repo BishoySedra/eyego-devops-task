@@ -6,13 +6,14 @@ app.get('/', (req, res) => {
     res.send('Hello Eyego');
 });
 
-app.get('/health', (req, res) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+app.get('/sayhello', (req, res) => {
+    let name = req.query.name || 'World';
+    res.send(`Hello ${name}!`);
 });
 
-app.get('/error', (req, res) => {
-    throw new Error('This is a test error');
-});
+
+
+
 
 try {
     app.listen(3000, () => {
