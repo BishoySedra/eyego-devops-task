@@ -6,10 +6,8 @@ app.get('/', (req, res) => {
     res.send('Hello Eyego');
 });
 
-// endpoint to say hello to a user given in the query string
-app.get('/hello', (req, res) => {
-    const name = req.query.name || 'World';
-    res.send(`Hello ${name}`);
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
 });
 
 try {
