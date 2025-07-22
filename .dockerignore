@@ -6,4 +6,3 @@ npm-debug.log*
 coverage
 dist
 .cache
-package-lock.json
