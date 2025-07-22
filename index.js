@@ -8,6 +8,7 @@ app.get('/', (req, res) => {
 
 app.get('/hello/:name', (req, res) => {
     // Extract the name from the URL parameters
+    // req.params.name contains the name parameter
     res.send(`Hello ${req.params.name}`);
 });
 
