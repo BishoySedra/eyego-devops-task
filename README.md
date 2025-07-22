@@ -27,7 +27,7 @@ The Eyego DevOps Task is a demonstration project showcasing the deployment of a 
 
 ## 📽️ Solution Walkthrough (Video)
 
-▶️ [Solution Explanation Video](https://github.com/user-attachments/assets/97e870ec-4c63-4558-8206-90ac322aaf7e)
+https://github.com/user-attachments/assets/97e870ec-4c63-4558-8206-90ac322aaf7e
 
 ## Features
 
