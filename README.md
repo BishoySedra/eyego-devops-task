@@ -3,7 +3,7 @@
 ## Agenda
 
 1. [Introduction](#introduction)
-2. [📽️ Solution Walkthrough (Video)](#️solution-walkthrough-video)
+2. [📽️ Solution Walkthrough (Video)](#solution-walkthrough-video)
 3. [Features](#features)
 4. [Prerequisites](#prerequisites)
 5. [Implementation Details](#implementation-details)
@@ -25,7 +25,7 @@
 
 The Eyego DevOps Task is a demonstration project showcasing the deployment of a simple Node.js application using modern DevOps practices. The application is built with Express.js and serves a "Hello Eyego" message. It is containerized using Docker and deployed to Kubernetes clusters, with support for cloud platforms like AWS EKS, Google Cloud GKE, and Alibaba Cloud ACK. This project highlights the integration of CI/CD pipelines, container orchestration, and cloud-native deployment strategies to ensure scalability and reliability.
 
-## 📽️ Solution Walkthrough (Video)
+## Solution Walkthrough Video
 
 https://github.com/user-attachments/assets/97e870ec-4c63-4558-8206-90ac322aaf7e
 
