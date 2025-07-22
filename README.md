@@ -3,25 +3,31 @@
 ## Agenda
 
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Prerequisites](#prerequisites)
-4. [Implementation Details](#implementation-details)
+2. [📽️ Solution Walkthrough (Video)](#️solution-walkthrough-video)
+3. [Features](#features)
+4. [Prerequisites](#prerequisites)
+5. [Implementation Details](#implementation-details)
    - [Application](#application)
    - [Docker](#docker)
    - [Kubernetes](#kubernetes)
-5. [Installation and Usage](#installation-and-usage)
+6. [Installation and Usage](#installation-and-usage)
    - [Local Development](#local-development)
    - [Docker Usage](#docker-usage)
    - [Kubernetes Deployment](#kubernetes-deployment)
    - [Deploying to AWS EKS](#deploying-to-aws-eks)
    - [Migrating to GCB EKS or Alibaba Cloud](#migrating-to-gcb-eks-or-alibaba-cloud)
-6. [Project Structure](#project-structure)
-7. [Deploy URL](#deploy-url)
-8. [GitHub Actions Secrets Required](#github-actions-secrets-required)
+7. [Project Structure](#project-structure)
+8. [Deploy URL](#deploy-url)
+9. [GitHub Actions Secrets Required](#github-actions-secrets-required)
+
 
 ## Introduction
 
 The Eyego DevOps Task is a demonstration project showcasing the deployment of a simple Node.js application using modern DevOps practices. The application is built with Express.js and serves a "Hello Eyego" message. It is containerized using Docker and deployed to Kubernetes clusters, with support for cloud platforms like AWS EKS, Google Cloud GKE, and Alibaba Cloud ACK. This project highlights the integration of CI/CD pipelines, container orchestration, and cloud-native deployment strategies to ensure scalability and reliability.
+
+## 📽️ Solution Walkthrough (Video)
+
+▶️ [Solution Explanation Video](https://github.com/user-attachments/assets/97e870ec-4c63-4558-8206-90ac322aaf7e)
 
 ## Features
 
