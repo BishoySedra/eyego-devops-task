@@ -6,8 +6,8 @@ app.get('/', (req, res) => {
     res.send('Hello Eyego');
 });
 
-app.get('/health', (req, res) => {
-    res.status(200).send('OK');
+app.get("/hello", (req, res) => {
+    res.send(`Hello, ${req.query.name}`);
 });
 
 try {
