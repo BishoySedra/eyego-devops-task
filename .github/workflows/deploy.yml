@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'index.js'
 
 jobs:
   build-and-deploy:
@@ -16,16 +14,6 @@ jobs:
       # Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v3
-
-      # Set up Node.js
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      # Install dependencies
-      - name: Install Dependencies
-        run: npm install
 
       # Build the Docker image
       - name: Build Docker Image
@@ -38,3 +26,37 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Push Docker Image to Amazon ECR
+        run: |
+          aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+
+          docker tag eyego-devops-task:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/eyego-devops-task:latest
+          
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/eyego-devops-task:latest
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+
+      - name: Deploy to EKS
+        run: |
+          kubectl create namespace eyego || true
+          
+          kubectl apply -f k8s/ -n eyego
+
+      - name: Force rollout of the Deployment
+        run: |
+          kubectl rollout restart deployment eyego-app -n eyego
+          
+      - name: Verify the Deployment
+        run: |
+          
+          kubectl get pods -n eyego
+
+          kubectl get svc -n eyego
+
+          kubectl get deployments -n eyego
+
+
+          
