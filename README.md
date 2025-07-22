@@ -3,7 +3,7 @@
 ## Agenda
 
 1. [Introduction](#introduction)
-2. [📽️ Solution Walkthrough (Video)](#solution-walkthrough-video)
+2. [Solution Walkthrough Video](#solution-walkthrough-video)
 3. [Features](#features)
 4. [Prerequisites](#prerequisites)
 5. [Implementation Details](#implementation-details)
